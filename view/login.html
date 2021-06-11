@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Theme The Band</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>THE BAND</h3>
+      <p>We love music!</p>
+      <p>We have created a fictional band website. Lorem ipsum..</p>
+    </div>
+    <a id="loginbtn">Login with fb</a>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: "222077032194415",
+          cookie: true,
+          xfbml: true,
+          version: "v6.0",
+        });
+
+        FB.AppEvents.logPageView();
+      };
+
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+  </body>
+  <script>
+    document.getElementById("loginbtn").addEventListener("click", loginwithfb);
+    function loginwithfb() {
+      console.log("Hi Please Login");
+
+      FB.login(
+        (response) => {
+          var access_token = response.authResponse.accessToken;
+          console.log(access_token);
+          fetch("https://localhost:8000/login/oauth/facebook", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ access_token }),
+          });
+        },
+        { scope: "public_profile,email" }
+      );
+    }
+  </script>
+</html>

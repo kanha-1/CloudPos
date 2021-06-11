@@ -1,0 +1,36 @@
+{
+  "name": "pos-solutions",
+  "version": "1.0.0",
+  "description": "Project",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu/POS-Solutions.git"
+  },
+  "author": "kanha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu/POS-Solutions/issues"
+  },
+  "homepage": "https://github.com/attainu/POS-Solutions#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.7",
+    "node-fetch": "^2.6.0",
+    "nodemailer": "^6.4.6",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-facebook-token": "^3.3.0",
+    "pdfjs": "^2.3.5",
+    "pdfkit": "^0.11.0",
+    "request": "^2.88.2"
+  }
+}
